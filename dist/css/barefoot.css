@@ -105,7 +105,7 @@
 .footnote-content {
 	font-size: var(--type-xs, clamp(1.0419rem, 1.0103rem + 0.1581vw, 1.2rem));
     line-height: 1.4;
-    max-height: var(--space-4xl, clamp(7.5rem, 7.125rem + 1.875vw, 9rem));
+    max-height: 50vh;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     padding: var(--space-xs, clamp(0.9375rem, 0.8906rem + 0.2344vw, 1.125rem));
