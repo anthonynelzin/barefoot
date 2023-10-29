@@ -1,0 +1,124 @@
+.footnote-container {
+	display: inline-block;
+    font-style: normal;
+    line-height: 0;
+    position: relative;
+    text-indent: 0;
+}
+
+.footnote-backdrop {
+    cursor: pointer;
+}
+
+.footnote-button {
+    background: var(--footcall-background, gainsboro);
+    border: 0;
+    border-radius: var(--space-xs, clamp(0.9375rem, 0.8906rem + 0.2344vw, 1.125rem));
+    cursor: pointer;
+    display: inline-block;
+    height: 1rem;
+    margin: 0;
+    padding: var(--space-3xs, clamp(0.3125rem, 0.2969rem + 0.0781vw, 0.375rem)) var(--space-2xs, clamp(0.625rem, 0.5938rem + 0.1563vw, 0.75rem)) var(--space-4xs, clamp(0.1875rem, 0.1719rem + 0.0781vw, 0.25rem)) var(--space-2xs, clamp(0.625rem, 0.5938rem + 0.1563vw, 0.75rem));
+    vertical-align: text-top;
+    z-index: 1;
+}
+
+.footnote-button:after {
+    color: var(--footcall-color, black);
+    content: attr(data-fn-number);
+    display: block;
+    font-size: var(--type-3xs, clamp(0.7231rem, 0.7141rem + 0.045vw, 0.7681rem));
+}
+
+.footnote-button:hover,
+.footnote-button.is-active:hover {
+    background: var(--foothover-background, grey);
+    outline: none;
+}
+
+.footnote-button:hover:after,
+.footnote-button.is-active:hover:after {
+    color: var(--foothover-color, white);
+}
+
+.footnote-button.is-active {
+    background: var(--footactive-background, dimgrey);
+}
+
+.footnote-button.is-active:after {
+    color: var(--footactive-color, white);
+}
+
+.bf-footnote {
+    background: var(--footnote-background, white);
+    border: 1px solid var(--footnote-border, darkgrey);
+    border-radius: var(--space-xs, clamp(0.9375rem, 0.8906rem + 0.2344vw, 1.125rem));
+    left: 0;
+    margin: 2rem 0;
+    max-width: 90vw;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform-origin: 50% 0;
+    transition-duration: 0.25s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+    z-index: 3;
+}
+
+.bf-footnote.footnote-is-active {
+    opacity: 0.95;
+}
+
+.bf-footnote.footnote-is-top {
+    bottom: 0;
+    top: auto;
+}
+
+.footnote-wrapper {
+    background: inherit;
+    border-radius: var(--space-xs, clamp(0.9375rem, 0.8906rem + 0.2344vw, 1.125rem));
+    margin: 0;
+    max-width: 50vw;
+    overflow: hidden;
+    position: relative;
+    width: max-content;
+    z-index: 5;
+}
+
+.footnote-tooltip {
+    background: inherit;
+    border: 1px solid var(--footnote-border, darkgrey);
+    height: var(--type-s, clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem));
+    position: absolute;
+    top: calc(var(--type-4xs, clamp(0.6031rem, 0.6009rem + 0.0113vw, 0.6144rem)) * -1);
+    transform: rotate(45deg);
+    width: var(--type-s, clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem));
+    z-index: 4;
+}
+
+.footnote-is-top .footnote-tooltip {
+    bottom: calc(var(--type-4xs, clamp(0.6031rem, 0.6009rem + 0.0113vw, 0.6144rem)) * -1);
+    top: auto;
+}
+
+.footnote-content {
+	font-size: var(--type-xs, clamp(1.0419rem, 1.0103rem + 0.1581vw, 1.2rem));
+    line-height: 1.4;
+    max-height: var(--space-4xl, clamp(7.5rem, 7.125rem + 1.875vw, 9rem));
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--space-xs, clamp(0.9375rem, 0.8906rem + 0.2344vw, 1.125rem));
+    position: relative;
+    z-index: 2;
+}
+
+.footnote-content :first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.footnote-content :last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

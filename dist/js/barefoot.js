@@ -232,16 +232,25 @@ var BareFoot = function () {
       // Footnote overflows to the left
       if (contOffset + wrapMove < 0) {
         wrapMove = wrapMove - (contOffset + wrapMove);
+        wrapOffset = contOffset + wrapMove;
+        tipOffset = contOffset - wrapOffset + contWidth / 2 - tipWidth / 2;
+        fn.style.left = "calc(1rem + " + wrapMove + "px)";
+        tooltip.style.left = "calc(" + tipOffset + "px - 1rem)";
       }
       // Footnote overflows to the right
       else if (contOffset + wrapMove + wrapWidth + this.scrollBarWidth > windowWidth) {
           wrapMove = wrapMove - (contOffset + wrapMove + wrapWidth + this.scrollBarWidth + contWidth / 2 - windowWidth);
-        }
-
-      fn.style.left = wrapMove + "px";
-      wrapOffset = contOffset + wrapMove;
-      tipOffset = contOffset - wrapOffset + contWidth / 2 - tipWidth / 2;
-      tooltip.style.left = tipOffset + "px";
+          wrapOffset = contOffset + wrapMove;
+      	  tipOffset = contOffset - wrapOffset + contWidth / 2 - tipWidth / 2;
+      	  fn.style.left = wrapMove + "px";
+          tooltip.style.left = tipOffset + "px";
+      }
+      else {
+      	wrapOffset = contOffset + wrapMove;
+      	tipOffset = contOffset - wrapOffset + contWidth / 2 - tipWidth / 2;
+      	fn.style.left = wrapMove + "px";
+        tooltip.style.left = tipOffset + "px";
+      }
     }
 
     /**
